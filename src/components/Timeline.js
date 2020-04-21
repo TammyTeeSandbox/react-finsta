@@ -1,9 +1,7 @@
 import React from 'react'
 import Post from './Post'
 
-const Timeline = (props) => {
-    const { comments, posts } = props;
-
+const Timeline = ({ comments, posts }) => {
     const getPostComments = (postId) => {
         return comments.filter((comment) => {
             return comment.postId === postId

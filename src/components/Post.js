@@ -1,7 +1,9 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 
-const Post = (props) => {
-    const { comments, post } = props;
+const Post = ({ comments, post }) => {
+    useEffect(() => {
+        console.log()
+    })
 
     const postComments = comments.map(comment => {
         return <li key={comment.id}>{ comment.name }</li>
