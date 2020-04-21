@@ -1,10 +1,6 @@
 import React, { useEffect, useState } from 'react'
 
 const Post = ({ comments, post }) => {
-    useEffect(() => {
-        console.log()
-    })
-
     const postComments = comments.map(comment => {
         return <li key={comment.id}>{ comment.name }</li>
     })
