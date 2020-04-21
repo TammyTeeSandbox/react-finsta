@@ -1,24 +1,22 @@
-import React, { Component } from 'react'
+import React from 'react'
 
-export class Post extends Component {
-    render() {
-        const { comments, post } = this.props;
+const Post = (props) => {
+    const { comments, post } = props;
 
-        const postComments = comments.map(comment => {
-            return <li key={comment.id}>{ comment.name }</li>
-        })
+    const postComments = comments.map(comment => {
+        return <li key={comment.id}>{ comment.name }</li>
+    })
 
-        return (
-            <div>
-                <div>
-                    <img src="//dummyimage.com/100/c/a" alt={post.title}/>
-                    <p>{ post.title }</p>
-                    <p>Comments:</p>
-                    <ul>{ postComments }</ul>
-                </div>
+    return (
+        <div>
+            <div className="">
+                <img src="//dummyimage.com/100/c/a" alt={post.title}/>
+                <p>{ post.title }</p>
+                <p>Comments:</p>
+                <ul>{ postComments }</ul>
             </div>
-        )
-    }
+        </div>
+    )
 }
 
 export default Post

@@ -1,33 +1,28 @@
-import React, { Component } from 'react';
-import Timeline from './components/Timeline'
+import React, { useEffect, useState } from 'react';
+import Timeline from './components/Timeline';
 
-class App extends Component {
-  state = {
-    comments: [],
-    posts: [],
-  }
+const App = () => {
+  const [comments, setComments] = useState([])
 
-  componentDidMount() {
-    fetch('https://jsonplaceholder.typicode.com/posts/')
-      .then(response => response.json())
-      .then(json => {
-        this.setState({
-          posts: json
-        })
-      })
-
+  useEffect(() => {
     fetch('https://jsonplaceholder.typicode.com/comments/')
       .then(response => response.json())
       .then(json => {
-        this.setState({
-          comments: json
-        })
+        setComments(json)
       })
-  }
+  })
 
-  render() {
-    return <Timeline comments={this.state.comments} posts={this.state.posts} />
-  }
+  const [posts, setPosts] = useState([])
+
+  useEffect(() => {
+    fetch('https://jsonplaceholder.typicode.com/posts/')
+      .then(response => response.json())
+      .then(json => {
+        setPosts(json)
+      })
+  })
+
+  return <Timeline comments={comments} posts={posts} />
 }
 
 export default App;
